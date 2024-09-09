@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<style>
+    .loding {
+        position: fixed;
+        background-color: #0ff;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 9999999999999999999;
+        display: flex;
+        color: rgba(44, 167, 167, .463);
+        align-items: center;
+        justify-content: center;
+        transition: 2s
+    }
+
+    .loded.loding {
+        opacity: 0;
+        visibility: hidden
+    }
+
+    .custom-loader {
+        width: 50px;
+        height: 50px;
+        --c: radial-gradient(farthest-side, #000000 92%, #0000);
+        background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%, var(--c) 0 50%;
+        background-size: 10px 10px;
+        background-repeat: no-repeat;
+        animation: s8 1s infinite;
+        position: relative
+    }
+
+    .custom-loader::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: 3px;
+        background: repeating-conic-gradient(#0000 0 35deg, #000 0 90deg);
+        -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
+        border-radius: 50%
+    }
+
+    @keyframes s8 {
+        100% {
+            transform: rotate(.5turn)
+        }
+    }
+</style>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; background-color: black; color: white;">
+        <p id="s"></p>
+        
+        </div>
+    <p id="baba">برای بابا ارسال شد</p>
+    <p id="mn">برای خودم ارسال شد</p>
+    <div class="loding">
+        <div class="custom-loader"></div>
+    </div><button>کلیک</button>
+    <div id="dar_hal_lod">
+        <p>در حال ارسال</p>
+    </div>
+    <script src="jsapi.js"></script>
+    <script src="jsapi2.js"></script>
+    <script>var loding = document.querySelector(".loding"); loding.classList.add("loded")</script>
+</body>
+
+</html>
